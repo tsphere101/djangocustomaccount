@@ -1,0 +1,53 @@
+<!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    {% comment %} <div class="display-1"> {% endcomment %}
+    <a class="display-3 text-decoration-none text-white" href="{% url 'home_view'%}">Brand</a>
+    {% comment %} </div> {% endcomment %}
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link" href="{% url 'logout_view' %}">Logout</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{% url 'profile_view' %}">Profile</a></li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link " href="{% url 'login_view' %}">Sign In</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{% url 'register_view' %}">Sign Up</a></li>
+        </li>
+
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% comment %} <div class="navbar navbar-expand-sm">
+  <div class="container-fluid">
+    <a href="{% url 'home_view' %}" class="navbar-brand fw-bold"> Brand</a>
+    <a href="#"> Product</a>
+
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'profile_view' %}"> Profile </a>
+
+    <a href="{% url 'logout_view' %}"> logout </a>
+    {% else %}
+    <a href="{% url 'login_view' %}"> Sign In </a>
+    <a href="{% url 'register_view' %}"> Sign Up </a>
+
+    {% endif %}
+  </div>
+</div> {% endcomment %}

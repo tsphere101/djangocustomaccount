@@ -1,0 +1,58 @@
+{% extends 'components/base.html'%} {% load static %} {% block content %}
+
+<!-- Background Image -->
+<style>
+  body,
+  html {
+    height: 100%;
+  }
+  .bg {
+    /* The image used */
+    /* background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).webp"); */
+    background-image: url("https://images.unsplash.com/photo-1555231955-348aa2312e19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+<div class="bg">
+
+<!-- Profile Card -->
+<div class="container pt-5">
+<div class="card mb-4" style="width: 30rem">
+  <img
+    class="card-img-top"
+    src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    alt="Card image cap"
+  />
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+
+<ul class="content">
+  <li>Firstname: {{request.user.first_name}}</li>
+  <li>Lastname : {{request.user.last_name}}</li>
+  <li>Email : {{request.user.email}}</li>
+  <li>Bio: {{request.user.bio}}</li>
+  <li>Last login : {{request.user.last_login}}</li>
+  <li>Date registered: {{request.user.date_registered}}</li>
+  <li>IP : {{user_ip}}</li>
+</ul>
+
+
+
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+
+
+{% endblock %}

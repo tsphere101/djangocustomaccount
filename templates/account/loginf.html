@@ -1,0 +1,62 @@
+{% extends 'components/base.html' % }
+{% load static % }
+{% block content % }
+    <div class = "mt-4 pt-4">
+        <div class = "text-center ">
+            <div class = "col-12 col-sm-7 col-md-3 m-auto">
+                <div class = "card border-0 shadow">
+                    <div class = "card-body">
+                        <div class = "container h1 mt-5 mb-4 ">
+                            Sign In to My Site < /div >
+                            <form method = "POST" style = "max-width:420px;margin:auto;">
+                                {% csrf_token %}
+                                <input class
+                                       form-control
+                                       mb-3
+                                       type
+                                       email
+                                       name
+                                       email
+                                       id
+                                       inputEmail
+                                       placeholder
+                                       Email
+                                       address
+                                       required
+                                       autofocus>
+                                <input class
+                                       form-control
+                                       mb-3
+                                       type
+                                       password
+                                       name
+                                       password
+                                       id
+                                       inputPassword1
+                                       placeholder
+                                       Password
+                                       required>
+                                <button class = "btn btn-primary btn-md" type = "submit">
+                                    Login < /button >
+                                    {% for field in form % }
+                                        <p >
+                                            {% for error in field.errors % }
+                                                <p style = "color: red">
+                                                    {{ error }} < /p >
+                                                {% endfor % }
+                                            </p >
+                                        {% endfor % }
+                                        {% if form.non_field_errors % }
+                                            <div style = "color: red">
+                                                <p >
+                                                    {{ form.non_field_errors }} < /p >
+                                                {% endif % }
+                                            </form >
+                                        </div >
+                                    </div >
+                                </div >
+                            </div >
+                        </div>
+                    </div>
+                {% endblock %}
+                {% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'components/base.html' %} {% block site_title%} Home {% endblock %}
+
+<!-- Prompt Messages -->
+{% block content %} {% if messages %} {% for message in messages %}
+<div
+  class="bg-warning pb-0"
+  {%
+  if
+  message.tags
+  %}
+  class="{{ message.tags }}"
+  {%
+  endif
+  %}
+>
+  <div class="container">{{ message }}</div>
+</div>
+{% endfor %} {% endif %}
+
+<!-- Background Image -->
+<style>
+  body,
+  html {
+    height: 100%;
+  }
+  .bg {
+    /* The image used */
+    /* background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).webp"); */
+    background-image: url("https://images.unsplash.com/photo-1555231955-348aa2312e19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+<div class="bg">
+  <!-- Body -->
+  <h1 class="container fw-bold pt-5">MySite Home Page</h1>
+  <p class="text-dark container">
+    Home page content (ข้อความหน้าหลัก) 
+    {% lorem 4 b random %}
+  </p>
+</div>
+
+{% endblock %}
